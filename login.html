@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .auth-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh;
+        background: linear-gradient(135deg, #e3f2fd, #fff);
+        padding: 20px;
+    }
+
+    .auth-card {
+        background: white;
+        width: 100%;
+        max-width: 420px;
+        padding: 30px 35px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        animation: fadeIn 0.4s ease;
+    }
+
+    .auth-card h2 {
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: #0d6efd;
+    }
+
+    .auth-card label {
+        font-weight: 500;
+        margin-top: 12px;
+    }
+
+    .auth-card input {
+        width: 100%;
+        padding: 10px 12px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        transition: 0.3s;
+    }
+
+    .auth-card input:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 4px rgba(13, 110, 253, 0.4);
+    }
+
+    .auth-card button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .auth-card p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+
+        <h2>Login</h2>
+
+        <form method="POST">
+            <label>Username</label>
+            <input type="text" name="username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" required>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+
+        <p>
+            Don't have an account? 
+            <a href="{{ url_for('auth.register') }}">Register</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

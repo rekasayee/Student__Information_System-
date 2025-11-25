@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-primary">📊 Results</h2>
+
+    {% if session.get('role') == 'admin' %}
+    <a class="btn btn-success shadow-sm" href="{{ url_for('result_add') }}">
+        <i class="bi bi-plus-circle"></i> Add / Update Result
+    </a>
+    {% endif %}
+</div>
+
+<!-- SEM 1 RESULTS -->
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Semester 1 Results</h5>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Mathematics I</th>
+                    <th>Physics</th>
+                    <th>Computer Science</th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in sem1 %}
+                <tr>
+                    <td>{{ r.digital_id }}</td>
+                    <td>{{ r.Mathematics1 }}</td>
+                    <td>{{ r.Physics }}</td>
+                    <td>{{ r.ComputerScience }}</td>
+                    <td><span class="fw-bold">{{ r.avg_grade }}</span></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted py-3">
+                        No Semester 1 results available.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- SEM 2 RESULTS -->
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Semester 2 Results</h5>
+    </div>
+
+    <div class="card-body p-0">
+        <table class="table table-striped table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Mathematics II</th>
+                    <th>English Literature</th>
+                    <th>History</th>
+                    <th>Average</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in sem2 %}
+                <tr>
+                    <td>{{ r.digital_id }}</td>
+                    <td>{{ r.Mathematics2 }}</td>
+                    <td>{{ r.EnglishLiterature }}</td>
+                    <td>{{ r.History }}</td>
+                    <td><span class="fw-bold">{{ r.avg_grade }}</span></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted py-3">
+                        No Semester 2 results available.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

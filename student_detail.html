@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow-lg border-0 rounded-3 mb-4">
+        <div class="card-body">
+            <h2 class="card-title mb-1">{{ s.name }}</h2>
+            <h6 class="text-muted">{{ s.digital_id }}</h6>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>DOB:</strong> {{ s.dob }}</p>
+                    <p><strong>Age:</strong> {{ s.age }}</p>
+                    <p><strong>Year:</strong> {{ s.year }}</p>
+                </div>
+
+                <div class="col-md-6">
+                    <p><strong>Phone:</strong> {{ s.phone }}</p>
+                    <p><strong>Address:</strong> {{ s.address }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEMESTER 1 -->
+    <div class="card shadow-sm border-0 rounded-3 mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="m-0">Semester 1 Results</h5>
+        </div>
+
+        <div class="card-body">
+            {% if sem1 %}
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>Math</th>
+                        <th>Physics</th>
+                        <th>Computer Science</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in sem1 %}
+                    <tr>
+                        <td>{{ r.Mathematics1 }}</td>
+                        <td>{{ r.Physics }}</td>
+                        <td>{{ r.ComputerScience }}</td>
+                        <td><strong>{{ r.avg_grade }}</strong></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="text-muted">No Semester 1 records available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- SEMESTER 2 -->
+    <div class="card shadow-sm border-0 rounded-3 mb-4">
+        <div class="card-header bg-success text-white">
+            <h5 class="m-0">Semester 2 Results</h5>
+        </div>
+
+        <div class="card-body">
+            {% if sem2 %}
+            <table class="table table-bordered table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>Math</th>
+                        <th>English</th>
+                        <th>History</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for r in sem2 %}
+                    <tr>
+                        <td>{{ r.Mathematics2 }}</td>
+                        <td>{{ r.EnglishLiterature }}</td>
+                        <td>{{ r.History }}</td>
+                        <td><strong>{{ r.avg_grade }}</strong></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="text-muted">No Semester 2 records available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- ENROLLMENTS -->
+    <div class="card shadow-sm border-0 rounded-3 mb-4">
+        <div class="card-header bg-info text-white">
+            <h5 class="m-0">Enrollments</h5>
+        </div>
+
+        <div class="card-body">
+            {% if enroll %}
+            <ul class="list-group">
+                {% for e in enroll %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>{{ e.enroll_id }}</strong>
+                    {{ e.course_id }} - {{ e.course_name }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-muted">No enrollment records available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- ACTIVITIES -->
+    <div class="card shadow-sm border-0 rounded-3 mb-4">
+        <div class="card-header bg-warning">
+            <h5 class="m-0">Activities</h5>
+        </div>
+
+        <div class="card-body">
+            {% if acts %}
+            <ul class="list-group">
+                {% for a in acts %}
+                <li class="list-group-item">
+                    <strong>{{ a.activity_id }}</strong> — {{ a.activity_name }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-muted">No activity records available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+        ← Back to Students
+    </a>
+
+</div>
+
+{% endblock %}

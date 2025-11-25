@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .auth-card {
+        max-width: 420px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        backdrop-filter: blur(8px);
+    }
+
+    .auth-card h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #0d6efd;
+    }
+
+    .auth-card label {
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    .auth-card input,
+    .auth-card select {
+        margin-bottom: 12px;
+    }
+
+    .auth-btn {
+        width: 100%;
+        font-weight: 600;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="auth-card">
+
+    <h2>Create Account</h2>
+
+    <form method="POST">
+
+        <label>Username:</label>
+        <input type="text" name="username" class="form-control" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" class="form-control" required>
+
+        <label>Role:</label>
+        <select name="role" class="form-select">
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary auth-btn">Register</button>
+    </form>
+
+    <div class="auth-footer">
+        <p>Already have an account? 
+            <a href="{{ url_for('auth.login') }}" class="text-primary fw-bold">Login</a>
+        </p>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session.get('role') == 'admin' %}
+
+<div class="col-md-7 mx-auto">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+
+            <h2 class="mb-4 text-primary">{{ action }} Teacher</h2>
+
+            <form method="post" class="form-modern">
+
+                <!-- Teacher ID -->
+                <div class="mb-3">
+                    <label class="form-label">Teacher ID</label>
+                    <input type="text" name="teacher_id" 
+                           class="form-control"
+                           value="{{ t.teacher_id if t else '' }}"
+                           {% if action == 'Edit' %} readonly {% endif %}>
+                </div>
+
+                <!-- Name -->
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" 
+                           class="form-control"
+                           value="{{ t.name if t else '' }}">
+                </div>
+
+                <!-- Qualification -->
+                <div class="mb-3">
+                    <label class="form-label">Qualification</label>
+                    <input type="text" name="qualification"
+                           class="form-control"
+                           value="{{ t.qualification if t else '' }}">
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="text" name="phone"
+                           class="form-control"
+                           value="{{ t.phone if t else '' }}">
+                </div>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <input type="text" name="gender"
+                           class="form-control"
+                           value="{{ t.gender if t else '' }}">
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        {{ action }}
+                    </button>
+
+                    <a href="{{ url_for('teachers') }}" class="btn btn-outline-secondary px-4">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="alert alert-danger mt-4">
+    You do not have permission to modify teacher details.
+</div>
+{% endif %}
+{% endblock %}

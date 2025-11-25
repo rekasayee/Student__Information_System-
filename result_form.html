@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if session.get('role') == 'admin' %}
+
+<div class="card mx-auto shadow-lg p-4" style="max-width: 650px; border-radius: 12px;">
+    <h2 class="mb-4 text-center text-primary">Add / Update Result</h2>
+
+    <form method="post" class="row g-3">
+
+        <!-- Student -->
+        <div class="col-md-12">
+            <label class="form-label fw-semibold">Student</label>
+            <select class="form-select" name="student_id" required>
+                {% for s in students %}
+                <option value="{{ s.digital_id }}">
+                    {{ s.digital_id }} - {{ s.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Semester -->
+        <div class="col-md-12">
+            <label class="form-label fw-semibold">Semester</label>
+            <select class="form-select" name="table" required>
+                <option value="sem1">Sem 1</option>
+                <option value="sem2">Sem 2</option>
+            </select>
+        </div>
+
+        <!-- Values -->
+        <div class="col-md-4">
+            <label class="form-label fw-semibold">Value 1</label>
+            <input type="number" step="0.01" class="form-control" name="v1">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label fw-semibold">Value 2</label>
+            <input type="number" step="0.01" class="form-control" name="v2">
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label fw-semibold">Value 3</label>
+            <input type="number" step="0.01" class="form-control" name="v3">
+        </div>
+
+        <!-- Average -->
+        <div class="col-md-12">
+            <label class="form-label fw-semibold">Average</label>
+            <input type="number" step="0.01" class="form-control" name="avg">
+        </div>
+
+        <!-- Buttons -->
+        <div class="col-12 text-center mt-3">
+            <button type="submit" class="btn btn-success px-4">Save</button>
+            <a href="{{ url_for('results') }}" class="btn btn-secondary px-4 ms-2">Cancel</a>
+        </div>
+
+    </form>
+</div>
+
+{% else %}
+<div class="alert alert-danger text-center mt-4">
+    <h4>You do not have permission to modify results.</h4>
+</div>
+{% endif %}
+
+{% endblock %}

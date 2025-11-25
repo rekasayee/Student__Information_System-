@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold">Activities</h2>
+
+    {% if session.get('role') == 'admin' %}
+    <a class="btn btn-primary shadow-sm" href="{{ url_for('activity_add') }}">
+        <span class="material-icons" style="font-size:18px; vertical-align:middle;">add</span>
+        Add Activity
+    </a>
+    {% endif %}
+</div>
+
+<!-- Activities Table Card -->
+<div class="card shadow-sm p-3 mb-4">
+    <h5 class="mb-3">Available Activities</h5>
+
+    <div class="mb-3">
+      <input type="text" class="form-control form-control-sm" id="searchActivities" placeholder="Search Activities..." data-table-id="activities-table">
+    </div>
+
+    <table class="table table-hover table-striped mb-0" id="activities-table">
+        <thead class="table-primary">
+            <tr>
+                <th>ID</th>
+                <th>Activity Name</th>
+                <th>Description</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in activities %}
+            <tr>
+                <td>{{ a.activity_id }}</td>
+                <td class="fw-semibold">{{ a.activity_name }}</td>
+                <td>{{ a.description }}</td>
+                <td class="text-center">
+                    <button class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="collapse" data-bs-target="#enrollForm{{ a.activity_id }}" aria-expanded="false" aria-controls="enrollForm{{ a.activity_id }}">
+                        Enroll Student
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="4" class="p-0 border-0">
+                    <div class="collapse" id="enrollForm{{ a.activity_id }}">
+                        <form method="post" action="{{ url_for('activity_enroll') }}" class="p-3 bg-light rounded-bottom">
+                            <input type="hidden" name="activity_id" value="{{ a.activity_id }}">
+                            <div class="row g-2 align-items-center">
+                                <div class="col-auto">
+                                    <label for="studentSelect{{ a.activity_id }}" class="form-label mb-0">Student</label>
+                                </div>
+                                <div class="col-auto">
+                                    <select id="studentSelect{{ a.activity_id }}" name="student_id" class="form-select form-select-sm" required>
+                                        {% for s in students %}
+                                        <option value="{{ s.digital_id }}">{{ s.digital_id }} - {{ s.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-sm btn-success">Enroll</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center text-muted py-3">
+                    No activities available.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if show_students %}
+<!-- Enrolled Students Section -->
+<div class="card shadow-sm p-3">
+    <h5 class="fw-bold">Enrolled Students</h5>
+
+    <ul class="list-group mt-2">
+        {% for s in students %}
+        <li class="list-group-item">
+            <span class="fw-semibold">{{ s.digital_id }}</span> - {{ s.name }}
+        </li>
+        {% else %}
+        <li class="list-group-item text-muted">No students enrolled.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% endblock %}

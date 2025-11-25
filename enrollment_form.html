@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+
+{% if session.get('role') == 'admin' %}
+<div class="col-md-7 mx-auto">
+<div class="card shadow-sm p-4">
+    <h3 class="mb-4 text-primary">{{ action }} Enrollment</h3>
+
+    <form method="post" class="row g-3">
+
+        {% if action == "Edit" %}
+        <div class="col-md-6">
+            <label class="form-label">Enrollment ID</label>
+            <input class="form-control" name="enroll_id" 
+                   value="{{ e.enroll_id }}" readonly>
+        </div>
+        {% else %}
+        <div class="col-md-6">
+            <label class="form-label">Enrollment ID</label>
+            <input class="form-control" name="enroll_id" placeholder="Enter ID">
+        </div>
+        {% endif %}
+
+        <div class="col-md-6">
+            <label class="form-label">Student</label>
+            <select class="form-select" name="student_id">
+                {% for s in students %}
+                <option value="{{ s.digital_id }}"
+                    {% if e and e.student_id == s.digital_id %} selected {% endif %}>
+                    {{ s.digital_id }} - {{ s.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Course</label>
+            <select class="form-select" name="course_id">
+                {% for c in courses %}
+                <option value="{{ c.course_id }}"
+                    {% if e and e.course_id == c.course_id %} selected {% endif %}>
+                    {{ c.course_id }} - {{ c.course_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-circle"></i> {{ action }}
+            </button>
+            <a href="{{ url_for('enrollments') }}" class="btn btn-secondary ms-2">
+                <i class="bi bi-x-circle"></i> Cancel
+            </a>
+        </div>
+
+    </form>
+</div>
+</div>
+
+{% else %}
+<div class="alert alert-danger mt-3">
+    <h5>You do not have permission to modify enrollments.</h5>
+</div>
+{% endif %}
+
+</div>
+{% endblock %}

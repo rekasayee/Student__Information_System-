@@ -1,0 +1,159 @@
+/* MATERIAL UI INSPIRED THEME */
+
+/* ----- GLOBAL RESET ----- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", "Roboto", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f7fb;
+    color: #333;
+}
+
+/* ----- NAVBAR ----- */
+.navbar {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* ----- CONTAINER ----- */
+.container {
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* ----- PAGE HEADINGS ----- */
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1a237e;
+}
+
+/* ----- BUTTONS ----- */
+.btn,
+button {
+    background: #3f51b5 !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    font-size: 15px !important;
+    border-radius: 6px !important;
+    transition: 0.2s ease;
+}
+
+.btn:hover,
+button:hover {
+    background: #303f9f !important;
+    transform: translateY(-2px);
+}
+
+/* Cancel buttons */
+a.cancel-link {
+    margin-left: 15px;
+    color: #444 !important;
+    font-weight: 500;
+}
+
+/* ----- TABLES ----- */
+.data {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.data th {
+    background: #e8eaf6;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+.data td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.data tr:hover {
+    background: #f4f6ff;
+}
+
+/* ----- FORMS ----- */
+form {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    max-width: 600px;
+}
+
+form label {
+    font-weight: 500;
+    margin-top: 12px;
+    display: block;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 4px rgba(63,81,181,0.3);
+}
+
+/* ----- FLASH MESSAGES ----- */
+.alert {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 15px;
+}
+
+/* ----- CARDS (Dashboard etc.) ----- */
+.card {
+    border-radius: 12px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: #1a237e;
+}
+
+/* Links inside tables */
+table a {
+    color: #3f51b5;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+.dashboard-card {
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
