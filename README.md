@@ -1,4 +1,4 @@
-# Student SIS (Flask + SQLite) — converted from Tkinter
+# Student Infornation System (Flask + SQLite) 
 
 Requirements:
 - Python 3.8+
@@ -16,3 +16,4 @@ Run:
 Notes:
 - This is a minimal conversion preserving schema & logic from your original `front_sqlite.py`. The original file is saved and referenced. :contentReference[oaicite:2]{index=2}
 - If you want me to generate all missing HTML templates (teachers, courses, enrollments, activities, classes, results) fully expanded into files, I can produce them next — tell me which pages you want first or if you want *all* of them now.
+
