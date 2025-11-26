@@ -1,8 +1,8 @@
-📘 Student Information System (SIS)
+Student Information System (SIS)
 
 A Flask-based web application for managing student details, teachers, enrollments, results, and activities in an educational institution.
 
-📝 Project Overview
+Project Overview
 
 The Student Information System (SIS) is a lightweight and user-friendly web application developed using Python Flask and SQLite.
 It allows administrators and teachers to efficiently manage student data through a centralized and secure platform.
@@ -16,54 +16,43 @@ This system provides features like:
 ✔ Role-based authentication
 ✔ Clean and responsive UI
 
-🚀 Features
-🔐 Authentication Module
+Features
 
-User login and logout
+Authentication Module
 
-Admin privileges
+1.User login and logout
+2.Admin privileges
+3.Secure session handling
+4.Registration support
+5.Password hashing for safety
 
-Secure session handling
+Student Management
 
-Registration support
+1.Add new students
+2.Edit/update student details
+3.Delete student records
+4.View complete student profile
 
-Password hashing for safety
+Teacher Management
 
-👨‍🎓 Student Management
+1.Add, edit, delete teacher details
+2.View all teachers
 
-Add new students
+Enrollment Management
 
-Edit/update student details
+1.Enroll students into subjects
+2.Maintain structured subject allocations
 
-Delete student records
+Result Management
 
-View complete student profile
+1.Enter marks for each student
+2.View all results in tabular format
 
-👩‍🏫 Teacher Management
+Activities Module
 
-Add, edit, delete teacher details
+1.Record student extracurricular activities
 
-View all teachers
-
-📝 Enrollment Management
-
-Enroll students into subjects
-
-Maintain structured subject allocations
-
-📊 Result Management
-
-Enter marks for each student
-
-View all results in tabular format
-
-🏆 Activities Module
-
-Record student extracurricular activities
-
-Track achievements and participation
-
-🖥 User Interface
+User Interface
 
 Responsive dashboard
 
@@ -71,7 +60,7 @@ Well-organized templates
 
 Simple and clean UI using HTML & CSS
 
-🗂 Project Structure
+Project Structure
 SIS/
 │── app.py
 │── auth.py
@@ -103,7 +92,7 @@ SIS/
     ├── activities.html
     └── activity_form.html
 
-🛠 Technologies Used
+Technologies Used
 Component	Technology
 Backend	Python, Flask
 Database	SQLite
@@ -111,7 +100,8 @@ Frontend	HTML, CSS
 Session Handling	Flask Sessions
 Authentication	Custom login system
 Styling	Custom CSS
-⚙️ Installation & Setup
+
+Installation & Setup
 1. Clone the Repository
 git clone <your-repo-link>
 cd SIS
@@ -137,11 +127,11 @@ python app.py
 6. Open in Browser
 http://127.0.0.1:5000/
 
-🔑 Default Admin Credentials (If Provided)
+Default Admin Credentials (If Provided)
 username: admin
 password: admin123  (example — change if needed)
 
-📌 Key Flask Files Explained
+Key Flask Files Explained
 app.py
 
 Main application file
@@ -167,3 +157,4 @@ All HTML pages using Jinja2 templating
 static/styles.css
 
 Custom styles
+
