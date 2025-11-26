@@ -1,56 +1,72 @@
 Student Information System (SIS)
 
-A Flask-based web application for managing student details, teachers, enrollments, results, and activities in an educational institution.
+A Flask-based web application for managing students, teachers, enrollments, results, and activities.
 
 Project Overview
 
 The Student Information System (SIS) is a lightweight and user-friendly web application developed using Python Flask and SQLite.
 It allows administrators and teachers to efficiently manage student data through a centralized and secure platform.
 
-This system provides features like:
+Key Features
+
 ✔ Student management
+
 ✔ Teacher management
+
 ✔ Enrollments
+
 ✔ Results entry
+
 ✔ Activity tracking
+
 ✔ Role-based authentication
+
 ✔ Clean and responsive UI
 
-Features
+ Features
+ Authentication Module
 
-Authentication Module
+User login and logout
 
-1.User login and logout
-2.Admin privileges
-3.Secure session handling
-4.Registration support
-5.Password hashing for safety
+Admin privileges
+
+Secure session handling
+
+Registration support
+
+Password hashing for safety
 
 Student Management
 
-1.Add new students
-2.Edit/update student details
-3.Delete student records
-4.View complete student profile
+Add new students
 
-Teacher Management
+Edit/update student details
 
-1.Add, edit, delete teacher details
-2.View all teachers
+Delete student records
+
+View complete student profile
+
+ Teacher Management
+
+Add, edit, delete teacher details
+
+View all teachers
 
 Enrollment Management
 
-1.Enroll students into subjects
-2.Maintain structured subject allocations
+Enroll students into subjects
+
+Maintain structured subject allocations
 
 Result Management
 
-1.Enter marks for each student
-2.View all results in tabular format
+Enter marks for each student
+
+View all results in tabular format
 
 Activities Module
 
-1.Record student extracurricular activities
+Record student extracurricular activities
 
 User Interface
 
@@ -98,28 +114,30 @@ Backend	Python, Flask
 Database	SQLite
 Frontend	HTML, CSS
 Session Handling	Flask Sessions
-Authentication	Custom login system
+Authentication	Custom system
 Styling	Custom CSS
 
+
 Installation & Setup
+
 1. Clone the Repository
 git clone <your-repo-link>
 cd SIS
 
 2. Create & Activate Virtual Environment
 python -m venv venv
-venv\Scripts\activate    # Windows
-source venv/bin/activate # Linux/Mac
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # Linux/Mac
 
 3. Install Dependencies
 pip install -r requirements.txt
 
 4. Initialize the Database
 
-The project contains scripts to initialize tables:
+The project provides initialization scripts:
 
 python create_users_table.py
-python create_admin.py  # Optional: create default admin
+python create_admin.py   # Optional: create default admin
 
 5. Run the Application
 python app.py
@@ -127,34 +145,33 @@ python app.py
 6. Open in Browser
 http://127.0.0.1:5000/
 
-Default Admin Credentials (If Provided)
+Default Admin Credentials (Example)
 username: admin
-password: admin123  (example — change if needed)
+password: admin123
 
 Key Flask Files Explained
 app.py
 
 Main application file
 
-Routes for dashboard, students, teachers, results, activities
+Contains routes for dashboard, students, teachers, enrollments, results, and activities
 
 auth.py
 
 Handles login, logout, registration
 
-Session management
+Manages session authentication
 
 db.py
 
 SQLite database connection
 
-Functions for CRUD operations
+CRUD helper functions
 
 templates/
 
-All HTML pages using Jinja2 templating
+Contains all HTML pages using Jinja2 template engine
 
 static/styles.css
 
-Custom styles
-
+Custom stylesheet for UI
