@@ -1,8 +1,8 @@
-Student Information System (SIS)
+📘 Student Information System (SIS)
 
 A Flask-based web application for managing students, teachers, enrollments, results, and activities.
 
-Project Overview
+📌 Project Overview
 
 The Student Information System (SIS) is a lightweight and user-friendly web application developed using Python Flask and SQLite.
 It allows administrators and teachers to efficiently manage student data through a centralized and secure platform.
@@ -23,8 +23,8 @@ Key Features
 
 ✔ Clean and responsive UI
 
- Features
- Authentication Module
+🚀 Features
+🔐 Authentication Module
 
 User login and logout
 
@@ -36,7 +36,7 @@ Registration support
 
 Password hashing for safety
 
-Student Management
+👨‍🎓 Student Management
 
 Add new students
 
@@ -46,29 +46,29 @@ Delete student records
 
 View complete student profile
 
- Teacher Management
+👩‍🏫 Teacher Management
 
 Add, edit, delete teacher details
 
 View all teachers
 
-Enrollment Management
+📝 Enrollment Management
 
 Enroll students into subjects
 
 Maintain structured subject allocations
 
-Result Management
+📊 Result Management
 
 Enter marks for each student
 
 View all results in tabular format
 
-Activities Module
+🏆 Activities Module
 
 Record student extracurricular activities
 
-User Interface
+🖥 User Interface
 
 Responsive dashboard
 
@@ -76,7 +76,7 @@ Well-organized templates
 
 Simple and clean UI using HTML & CSS
 
-Project Structure
+🗂 Project Structure
 SIS/
 │── app.py
 │── auth.py
@@ -108,7 +108,7 @@ SIS/
     ├── activities.html
     └── activity_form.html
 
-Technologies Used
+🛠 Technologies Used
 Component	Technology
 Backend	Python, Flask
 Database	SQLite
@@ -116,10 +116,7 @@ Frontend	HTML, CSS
 Session Handling	Flask Sessions
 Authentication	Custom system
 Styling	Custom CSS
-
-
-Installation & Setup
-
+⚙️ Installation & Setup
 1. Clone the Repository
 git clone <your-repo-link>
 cd SIS
@@ -145,11 +142,11 @@ python app.py
 6. Open in Browser
 http://127.0.0.1:5000/
 
-Default Admin Credentials (Example)
+🔑 Default Admin Credentials (Example)
 username: admin
 password: admin123
 
-Key Flask Files Explained
+📂 Key Flask Files Explained
 app.py
 
 Main application file
